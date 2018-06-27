@@ -1,5 +1,7 @@
 package simulator;
 
+import simulator.transport.Flyable;
+
 import java.util.ArrayList;
 
 public class Tower {

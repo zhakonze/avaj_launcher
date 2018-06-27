@@ -1,4 +1,7 @@
-package simulator;
+package simulator.transport;
+
+import simulator.Coordinates;
+import simulator.WeatherTower;
 
 import java.util.HashMap;
 import java.util.Map;

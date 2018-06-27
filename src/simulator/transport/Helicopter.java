@@ -1,13 +1,16 @@
-package simulator;
+package simulator.transport;
 
+
+import simulator.Coordinates;
+import simulator.WeatherTower;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Helicopter extends Aircraft implements Flyable{
+public class Helicopter extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
-    Helicopter(String name, Coordinates coordinates)
+    Helicopter(String name, simulator.Coordinates coordinates)
     {
         super(name, coordinates);
     }
@@ -52,7 +55,7 @@ public class Helicopter extends Aircraft implements Flyable{
             this.coordinates = new Coordinates(
                     coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 0,
-                    coordinates.getHeight() + 12
+                    coordinates.getHeight() - 12
             );
 
         }

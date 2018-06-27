@@ -1,8 +1,10 @@
-package simulator;
+package simulator.transport;
 
 import java.util.HashMap;
 import java.util.Map;
-import simulator.Flyable;
+
+import simulator.Coordinates;
+import simulator.WeatherTower;
 
 public class JetPlane extends Aircraft implements Flyable
 {
@@ -54,7 +56,7 @@ public class JetPlane extends Aircraft implements Flyable
             this.coordinates = new Coordinates(
                     coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 0,
-                    coordinates.getHeight() + 7
+                    coordinates.getHeight() - 7
             );
 
         }

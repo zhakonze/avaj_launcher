@@ -1,4 +1,5 @@
-package simulator;
+package simulator.transport;
+import simulator.*;
 
 public class Aircraft {
     protected long id;
