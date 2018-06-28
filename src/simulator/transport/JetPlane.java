@@ -15,25 +15,24 @@ public class JetPlane extends Aircraft implements Flyable
         super(name, coordinates);
     }
 
+//    public void changeCoordinates (int longitude, int latitude, int height) {
+//        this.coordinates.longtitude += longitude;
+//        this.coordinates.latitude += latitude;
+//        this.coordinates.height += height;
+//    }
     public void updateConditions()
     {
         String weather = weatherTower.getWeather(this.coordinates);
-        Map<String, String> map = new HashMap<String, String>()
-        {{
-            put("SUN", "Dam its really hitting up in here");
-            put("RAIN", "This rain is making hard for me to see");
-            put("FOG", "I wish i could use something to blow away this");
-            put("SNOW", "Landing will be hard in this weather");
 
-        }};
         if(weather == "SUN")
         {
+            //this.coordinates.changeCoordinates(0, 0, 5);
             this.coordinates = new Coordinates(
                     coordinates.getLongitude() + 0,
                     coordinates.getLatitude() + 10,
                     coordinates.getHeight() + 2
             );
-
+            log.writeToFile("JetPlane#" + this.name + "(" + this.id + ") Dam its really hitting up in here");
         }
         else if (weather == "RAIN")
         {
@@ -42,6 +41,7 @@ public class JetPlane extends Aircraft implements Flyable
                     coordinates.getLatitude() + 5,
                     coordinates.getHeight() + 0
             );
+            log.writeToFile("JetPlane#" + this.name + "(" + this.id + ") This rain is making hard for me to see");
         }
         else if (weather == "FOG")
         {
@@ -50,6 +50,7 @@ public class JetPlane extends Aircraft implements Flyable
                     coordinates.getLatitude() + 1,
                     coordinates.getHeight() + 0
             );
+            log.writeToFile("JetPlane#" + this.name + "(" + this.id + ") I wish i could use something to blow away this");
         }
         else if (weather == "SNOW")
         {
@@ -58,7 +59,12 @@ public class JetPlane extends Aircraft implements Flyable
                     coordinates.getLatitude() + 0,
                     coordinates.getHeight() - 7
             );
-
+            log.writeToFile("JetPlane#" + this.name + "(" + this.id + ") Landing will be hard in this weather");
+        }
+        if (this.coordinates.getHeight() <= 0)
+        {
+            this.weatherTower.unregister(this);
+            log.writeToFile("Tower says: JetPlane#" + this.name + "(" + this.id + ") unregistered from weather tower");
         }
     }
 
@@ -66,7 +72,7 @@ public class JetPlane extends Aircraft implements Flyable
     {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
-        System.out.println("Tower says" + this.name + this.id + " registered to weather tower");
-
+        log.writeToFile("Tower says: JetPlane#" + this.name + "(" + this.id + ") registered to weather tower");
     }
+
 }

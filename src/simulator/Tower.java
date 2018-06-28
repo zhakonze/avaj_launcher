@@ -2,11 +2,11 @@ package simulator;
 
 import simulator.transport.Flyable;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Tower {
-    private ArrayList<Flyable> observers = new ArrayList<>();
-    private ArrayList<Flyable> observers2 = new ArrayList<>();
+    private List<Flyable> observers = new ArrayList<>();
+    private List<Flyable> observers2 = new ArrayList<>();
 
 
     public void register(Flyable flyable)
@@ -27,7 +27,7 @@ public class Tower {
 
     protected void conditionsChanged()
     {
-        for (Flyable flyable: observers)
+        for (Flyable flyable : observers)
         {
             flyable.updateConditions();
         }

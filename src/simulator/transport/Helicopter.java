@@ -17,12 +17,7 @@ public class Helicopter extends Aircraft implements Flyable {
     public void updateConditions()
     {
         String weather = weatherTower.getWeather(this.coordinates);
-        Map<String, String> map = new HashMap<String, String>(){{
-            put("SUN", " The sun is blinding me");
-            put("RAIN", " Hope i left my clothes off the line ");
-            put("FOG", " Hate waking up to a fogy weather ");
-            put("SNOW", " Wow the snow, Zambia doesn't have such ");
-        }};
+
         if (weather == "SUN")
         {
             this.coordinates = new Coordinates(
@@ -30,7 +25,7 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getLatitude() + 10,
                     coordinates.getHeight() + 2
             );
-
+            log.writeToFile("Helicopter#" + this.name + "(" + this.id + ") The sun is blinding me");
         }
         else if (weather == "RAIN")
         {
@@ -39,7 +34,7 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getLatitude() + 0,
                     coordinates.getHeight() + 0
             );
-
+            log.writeToFile("Helicopter#" + this.name + "(" + this.id + ") Hope i left my clothes off the line");
         }
         else if (weather == "FOG")
         {
@@ -48,7 +43,7 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getLatitude() + 0,
                     coordinates.getHeight() + 0
             );
-
+            log.writeToFile("Helicopter#" + this.name + "(" + this.id + ") Hate waking up to a fogy weather");
         }
         else if (weather == "SNOW")
         {
@@ -57,16 +52,18 @@ public class Helicopter extends Aircraft implements Flyable {
                     coordinates.getLatitude() + 0,
                     coordinates.getHeight() - 12
             );
-
+            log.writeToFile("Helicopter#" + this.name + "(" + this.id + ") Wow the snow, Zambia doesn't have such");
         }
-
-
-
+        if (this.coordinates.getHeight() <= 0)
+        {
+            this.weatherTower.unregister(this);
+            log.writeToFile("Tower says: Helicopter#" + this.name + "(" + this.id + ") unregistered from weather tower");
+        }
     }
     public void registerTower(WeatherTower weatherTower)
     {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
-        System.out.println("Tower says" + this.name + this.id + " registered to weather tower");
+        log.writeToFile("Tower says: Helicopter#" + this.name + "(" + this.id + ") registered to weather tower");
     }
 }

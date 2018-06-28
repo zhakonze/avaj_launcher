@@ -3,7 +3,7 @@ package simulator.transport;
 import simulator.WeatherTower;
 
 public interface Flyable {
-    public void updateConditions();
+    void updateConditions();
 
-    public void registerTower(WeatherTower weatherTower);
+    void registerTower(WeatherTower weatherTower);
 }
