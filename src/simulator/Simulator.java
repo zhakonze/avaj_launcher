@@ -48,9 +48,9 @@ public class Simulator
                     flyable.registerTower(weatherTower);
                 }
                 for (int i = 1; i <= simulations; i++) {
-                    //LoggerWrite.writeToFile("simulation: " + i);
+                    LoggerWrite.writeToFile("simulation: " + i);
                     weatherTower.changeWeather();
-                    //LoggerWrite.writeToFile("");
+                    LoggerWrite.writeToFile("");
                 }
             }
         }

@@ -19,7 +19,6 @@ public class WeatherProvider
 
     public String getCurrentWeather(Coordinates coordinates)
     {
-        //int pin = (coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight()) % 4;
         Random rand = new Random();
 
         int randWeather = rand.nextInt(4);
