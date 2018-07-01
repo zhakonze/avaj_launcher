@@ -12,14 +12,14 @@ Requirements:
 
 Your program will take one and only one argument from the command line.
 =========================
-Scenario file
+#Scenario file#   
 The first line of the file contains a positive integer number. This number represents the
 number of times the simulation is run. In our case, this will be the number of times a
 weather change is triggered.
 Each following line describes an aircraft that will be part of the simulation, with this
 format: TYPE NAME LONGITUDE LATITUDE HEIGHT.
 =========================
-Weather generation
+#Weather generation#       
 There are 4 types of weather:
 • RAIN
 • FOG
@@ -28,7 +28,7 @@ There are 4 types of weather:
 Each 3 dimensional point has its own weather. Feel free to use whatever generation
 algorithm you want, as long as it takes into account the point’s coordinates.
 ========================
-Aircrafts
+#Aircrafts#       
 • JetPlane:
 ◦ SUN - Latitude increases with 10, Height increases with 2
 ◦ RAIN - Latitude increases with 5
@@ -45,7 +45,7 @@ Aircrafts
 ◦ FOG - Height decreases with 3
 ◦ SNOW - Height decreases with 15
 ======================
-Simulation
+#Simulation#      
 • Coordinates are positive numbers.
 • The height is in the 0-100 range.
 • If an aircraft needs to pass the upper limit height it remains at 100.
