@@ -1,5 +1,5 @@
-============= avaj_launcher ===============
-          * Flight Simulation *
+### ============= avaj_launcher ===============
+              * Flight Simulation *
 
 
 For this project we had to implement a minimal aircraft simulation program based on a given
@@ -8,17 +8,17 @@ respecting every detail provided in the diagram. Feel free to add more classes o
 additional attributes if you think it is necessary, but do not change access modifiers or 
 the class hierarchy for the classes provided in the diagram.
 
-Requirements:
+### Requirements:
 
 Your program will take one and only one argument from the command line.
-=========================
+### =========================
 #Scenario file#   
 The first line of the file contains a positive integer number. This number represents the
 number of times the simulation is run. In our case, this will be the number of times a
 weather change is triggered.
 Each following line describes an aircraft that will be part of the simulation, with this
 format: TYPE NAME LONGITUDE LATITUDE HEIGHT.
-=========================
+### =========================
 #Weather generation#       
 There are 4 types of weather:
 • RAIN
@@ -27,7 +27,7 @@ There are 4 types of weather:
 • SNOW
 Each 3 dimensional point has its own weather. Feel free to use whatever generation
 algorithm you want, as long as it takes into account the point’s coordinates.
-========================
+### ========================
 #Aircrafts#       
 • JetPlane:
 ◦ SUN - Latitude increases with 10, Height increases with 2
@@ -44,7 +44,7 @@ algorithm you want, as long as it takes into account the point’s coordinates.
 ◦ RAIN - Height decreases with 5
 ◦ FOG - Height decreases with 3
 ◦ SNOW - Height decreases with 15
-======================
+### ======================
 #Simulation#      
 • Coordinates are positive numbers.
 • The height is in the 0-100 range.
